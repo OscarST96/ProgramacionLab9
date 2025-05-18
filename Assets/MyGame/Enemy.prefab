@@ -150,6 +150,6 @@ MonoBehaviour:
   separationRadius: 3
   player: {fileID: 0}
   gameManager: {fileID: 0}
-  Follow: 0
+  Follow: 1
   MoveAway: 0
-  FollowSeparate: 1
+  FollowSeparate: 0

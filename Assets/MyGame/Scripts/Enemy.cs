@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Player player;//referencia del player
     [SerializeField] private GameManager gameManager;
 
-    private Vector3 direction;
     private Rigidbody rb;//Es un componente dentro de unity, el cual trabaja con fisicas.
     public bool Follow = false;//Para que siga al player
     public bool MoveAway = false;//Para que se aleje del player 
@@ -35,6 +34,7 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (player == null) return;
         OnFollow();
         OnMoveAway();
         OnFollowSeparate();
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
         if (Follow == false || FollowSeparate == true || MoveAway == true) return;//Verificamos que solo este activo el bool Follow.
         
-        direction = (player.transform.position - transform.position).normalized;//disminuimos la distancia, para ello se toma la posicion del player y la restamos con la del enemigo, utilizando normalized.
+        Vector3 direction = (player.transform.position - transform.position).normalized;//disminuimos la distancia, para ello se toma la posicion del player y la restamos con la del enemigo, utilizando normalized.
         rb.velocity = direction * speed;//asignamos la velocidad y la direccion en la que se movera.
     }
     //Metodo para que se aleje del jugador
@@ -52,14 +52,14 @@ public class Enemy : MonoBehaviour
     {
         if (MoveAway == false && Follow == true || FollowSeparate == true) return;//Verificamos que solo este activo el bool MoveAway.
 
-        direction = (transform.position - player.transform.position).normalized;//Aumentamos la distancia, para ello se toma la posicion del enemigo y la restamos con la del player, utilizando normalized.
+        Vector3 direction = (transform.position - player.transform.position).normalized;//Aumentamos la distancia, para ello se toma la posicion del enemigo y la restamos con la del player, utilizando normalized.
         rb.velocity = direction * speed;//asignamos la velocidad y la direccion en la que se movera.
     }
     //Metodo para que siga al jugador, pero tomando distancia con los demas enemigos
     private void OnFollowSeparate()
     {
         if (FollowSeparate == false && Follow == true || MoveAway == true) return;//Verificamos que solo este activo el bool FollowSeparate.
-        if (player == null) return;
+
         Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;//disminuimos la distancia, para ello se toma la posicion del player y la restamos con la del enemigo, utilizando normalized.
         Vector3 separation = Vector3.zero;//Este vector acumulará la fuerza de separación respecto a los otros enemigos.
 
