@@ -39,10 +39,19 @@ public class Enemy : MonoBehaviour
         OnMoveAway();
         OnFollowSeparate();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            player.Score--;
+            Destroy(this.gameObject);
+        }
+    }
+    #region Metodos
     //Metodo para que siga al jugador
     private void OnFollow()
     {
-        if (Follow == false || FollowSeparate == true || MoveAway == true) return;//Verificamos que solo este activo el bool Follow.
+        if (Follow == false && FollowSeparate == true || MoveAway == true) return;//Verificamos que solo este activo el bool Follow.
         
         Vector3 direction = (player.transform.position - transform.position).normalized;//disminuimos la distancia, para ello se toma la posicion del player y la restamos con la del enemigo, utilizando normalized.
         rb.velocity = direction * speed;//asignamos la velocidad y la direccion en la que se movera.
@@ -82,4 +91,5 @@ public class Enemy : MonoBehaviour
         Vector3 finalDirection = (directionToPlayer + separation).normalized;
         rb.velocity = finalDirection * speed;//Mueve al enemigo con la velocidad deseada en la dirección calculada.
     }
+    #endregion
 }

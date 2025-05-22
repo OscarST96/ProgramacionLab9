@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -8525129038422126044, guid: 3d531a891564cbf41977ad57abad7b72, type: 3}
+      propertyPath: cadence
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4739648507066485040, guid: 3d531a891564cbf41977ad57abad7b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -111,5 +115,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
