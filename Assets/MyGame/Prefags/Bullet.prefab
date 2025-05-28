@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 698799967468661073}
   - component: {fileID: 4438780916743330132}
   - component: {fileID: 9114216441493049775}
-  - component: {fileID: 676530946826662734}
   - component: {fileID: -270652457032686221}
+  - component: {fileID: 6791653915133601551}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -61,6 +61,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -107,22 +110,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &676530946826662734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938050784938344888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7d8ee5b38d1a04ebb6401caf0c2f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 50
-  timeLife: 1.5
-  gameManager: {fileID: 0}
-  player: {fileID: 0}
 --- !u!54 &-270652457032686221
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,3 +137,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &6791653915133601551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938050784938344888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38eccfa91f1d7164d8ba49a20d700b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  timeLife: 1
+  gameManager: {fileID: 0}
+  player: {fileID: 0}

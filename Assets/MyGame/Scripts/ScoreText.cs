@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScoreText : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class ScoreText : MonoBehaviour
     {
         ScoreUpdate();
     }
-    private void ScoreUpdate()
+    public void ScoreUpdate()
     {
         text.text = "Score: " +  gameManager.PlayerSelect.Score;
     }

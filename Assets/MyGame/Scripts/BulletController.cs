@@ -49,7 +49,7 @@ public class BulletController : MonoBehaviour
     }
     private void Movement()
     {
-        rb.velocity = direction * speed;
+        rb.linearVelocity = direction * speed;
         DestroyBullet();
     }
     private void DestroyBullet()

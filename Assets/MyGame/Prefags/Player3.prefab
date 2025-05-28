@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: cadence
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3669745871824777324, guid: 3d531a891564cbf41977ad57abad7b72, type: 3}
+      propertyPath: couldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669745871824777324, guid: 3d531a891564cbf41977ad57abad7b72, type: 3}
+      propertyPath: coulDownDash
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4739648507066485040, guid: 3d531a891564cbf41977ad57abad7b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 2

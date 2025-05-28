@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float speed = 5f;//Velocidad en la que se movera el player.
     [SerializeField] private float cadence = 1f;
+    [SerializeField] private float impulseDash = 1f;
+    [SerializeField] private float couldown = 5;
+    [SerializeField] private int stamina;
+    [SerializeField] private int staminaMax;
     [SerializeField] private BulletController bullet;
 
     private Rigidbody rb;//Es un componente dentro de unity, el cual trabaja con fisicas.
@@ -14,6 +18,7 @@ public class Player : MonoBehaviour
     private float currentTime = 0;
     private GameObject bulletInstatiate;
     private int score = 0;
+    private bool isDash = true;
 
     public int Score
     {
@@ -35,7 +40,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
+        Dash();
     }
     private void Movement()
     {
@@ -85,5 +90,29 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+    private void Dash()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (isDash && stamina > 0)
+            {
+                rb.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
+                stamina -= 20;
+                Debug.Log("Dash, " + stamina);
+                isDash = false;
+            }
+            Invoke("OnDash", couldown);
+            if (stamina <= 0)
+            {
+                stamina += staminaMax;
+                print("se a reseteado tu stamina.");
+            }
+        }
+    }
+    private void OnDash()
+    {
+        isDash = true;
+        Debug.Log("Se ha activado nuevamente el dash.");
     }
 }
